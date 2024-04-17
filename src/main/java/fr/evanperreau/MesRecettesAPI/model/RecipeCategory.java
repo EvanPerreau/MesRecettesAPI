@@ -8,14 +8,17 @@ import lombok.Data;
 @Table(name = "recipe_category")
 public class RecipeCategory {
 
-    @Id
+    @EmbeddedId
+    private RecipeCategoryId id;
+
     @ManyToOne
-    @JoinColumn(name = "recipe_id", nullable = false)
+    @MapsId("recipeId")
+    @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
-    @Id
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @MapsId("categoryId")
+    @JoinColumn(name = "category_id")
     private Category category;
 }
 

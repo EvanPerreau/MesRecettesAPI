@@ -8,14 +8,16 @@ import lombok.Data;
 @Table(name = "role_permission")
 public class RolePermission {
 
-    @Id
+    @EmbeddedId
+    private RolePermissionId id;
+
     @ManyToOne
+    @MapsId("roleName")
     @JoinColumn(name = "role_name", nullable = false)
     private Role role;
 
-    @Id
     @ManyToOne
+    @MapsId("permissionName")
     @JoinColumn(name = "permission_name", nullable = false)
     private Permission permission;
 }
-
