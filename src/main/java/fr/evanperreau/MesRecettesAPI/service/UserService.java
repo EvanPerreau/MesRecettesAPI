@@ -1,5 +1,6 @@
 package fr.evanperreau.MesRecettesAPI.service;
 
+import fr.evanperreau.MesRecettesAPI.exception.ResourceNotFoundException;
 import fr.evanperreau.MesRecettesAPI.model.User;
 import fr.evanperreau.MesRecettesAPI.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
+    public User getUserById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
     }
 
     public User saveUser(User user) {

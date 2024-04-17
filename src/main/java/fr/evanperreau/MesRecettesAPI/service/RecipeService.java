@@ -1,6 +1,7 @@
 package fr.evanperreau.MesRecettesAPI.service;
 
 
+import fr.evanperreau.MesRecettesAPI.exception.ResourceNotFoundException;
 import fr.evanperreau.MesRecettesAPI.model.Recipe;
 import fr.evanperreau.MesRecettesAPI.repository.RecipeRepository;
 import lombok.AllArgsConstructor;
@@ -18,8 +19,9 @@ public class RecipeService {
         return recipeRepository.findAll();
     }
 
-    public Optional<Recipe> getRecipeById(Long id) {
-        return recipeRepository.findById(id);
+    public Recipe getRecipeById(Long id) {
+        return recipeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Recipe", "id", id));
     }
 
     public Recipe saveRecipe(Recipe recipe) {

@@ -1,5 +1,6 @@
 package fr.evanperreau.MesRecettesAPI.service;
 
+import fr.evanperreau.MesRecettesAPI.exception.ResourceNotFoundException;
 import fr.evanperreau.MesRecettesAPI.model.Role;
 import fr.evanperreau.MesRecettesAPI.repository.RoleRepository;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,9 @@ public class RoleService {
         return roleRepository.findAll();
     }
 
-    public Optional<Role> getRoleByName(String name) {
-        return roleRepository.findById(name);
+    public Role getRoleByName(String name) {
+        return roleRepository.findById(name)
+                .orElseThrow(() -> new ResourceNotFoundException("Role", "name", name));
     }
 
     public Role saveRole(Role role) {

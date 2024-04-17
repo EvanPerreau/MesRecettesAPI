@@ -1,5 +1,6 @@
 package fr.evanperreau.MesRecettesAPI.service;
 
+import fr.evanperreau.MesRecettesAPI.exception.ResourceNotFoundException;
 import fr.evanperreau.MesRecettesAPI.model.Permission;
 import fr.evanperreau.MesRecettesAPI.repository.PermissionRepository;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,9 @@ public class PermissionService {
         return permissionRepository.findAll();
     }
 
-    public Optional<Permission> getPermissionByName(String name) {
-        return permissionRepository.findById(name);
+    public Permission getPermissionByName(String name) {
+        return permissionRepository.findById(name)
+                .orElseThrow(() -> new ResourceNotFoundException("Permission", "name", name));
     }
 
     public Permission savePermission(Permission permission) {
