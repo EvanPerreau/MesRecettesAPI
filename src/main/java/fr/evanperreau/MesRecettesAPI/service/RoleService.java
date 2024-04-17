@@ -6,8 +6,6 @@ import fr.evanperreau.MesRecettesAPI.repository.RoleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class RoleService {

@@ -6,8 +6,6 @@ import fr.evanperreau.MesRecettesAPI.repository.PermissionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class PermissionService {

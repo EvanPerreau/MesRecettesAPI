@@ -7,8 +7,6 @@ import fr.evanperreau.MesRecettesAPI.repository.RecipeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class RecipeService {
