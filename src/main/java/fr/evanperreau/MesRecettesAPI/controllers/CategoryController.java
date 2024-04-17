@@ -1,10 +1,8 @@
 package fr.evanperreau.MesRecettesAPI.controllers;
 
-import fr.evanperreau.MesRecettesAPI.exception.ResourceNotFoundException;
 import fr.evanperreau.MesRecettesAPI.model.Category;
 import fr.evanperreau.MesRecettesAPI.service.CategoryService;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

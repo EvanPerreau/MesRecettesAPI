@@ -1,6 +1,5 @@
 package fr.evanperreau.MesRecettesAPI.controllers;
 
-import fr.evanperreau.MesRecettesAPI.exception.ResourceNotFoundException;
 import fr.evanperreau.MesRecettesAPI.model.Permission;
 import fr.evanperreau.MesRecettesAPI.service.PermissionService;
 import lombok.AllArgsConstructor;
